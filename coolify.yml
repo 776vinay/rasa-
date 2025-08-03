@@ -10,6 +10,13 @@ app:
         - RASA_ENV=production
         - PYTHONUNBUFFERED=1
         - RASA_TELEMETRY_ENABLED=false
+      volumes:
+        - ./data:/app/data:ro
+        - ./models:/app/models
+        - ./config.yml:/app/config.yml:ro
+        - ./domain.yml:/app/domain.yml:ro
+        - ./credentials.yml:/app/credentials.yml:ro
+        - ./endpoints.yml:/app/endpoints.yml:ro
       resources:
         limits:
           memory: 2G
@@ -24,6 +31,9 @@ app:
       environment:
         - RASA_ENV=production
         - PYTHONUNBUFFERED=1
+      volumes:
+        - ./actions:/app/actions:ro
+        - ./models:/app/models
       resources:
         limits:
           memory: 1G

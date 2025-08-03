@@ -65,8 +65,8 @@
         const chatContainer = document.getElementById('chat-container');
         const userInput = document.getElementById('user-input');
         
-        // Using Coolify server
-        const RASA_SERVER = 'http://141.148.214.61:5005';
+        // Using local Rasa server
+        const RASA_SERVER = 'http://localhost:5005/chat_interface';
 
         function addMessage(message, isUser) {
             const messageDiv = document.createElement('div');
@@ -85,12 +85,12 @@
             userInput.value = '';
 
             try {
-                const response = await fetch(`${RASA_SERVER}/webhooks/rest/webhook`, {
+                const response = await fetch(`http://localhost:32771/webhooks/rest/webhook`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ message: message })
+                    body: JSON.stringify({ message: message, sender: "user" })
                 });
 
                 const data = await response.json();
@@ -107,24 +107,7 @@
             }
         }
 
-        // Check server connectivity
-        async function checkServer() {
-            try {
-                const response = await fetch(`${RASA_SERVER}/`, {
-                    method: 'GET'
-                });
-                console.log('Server status:', response.status);
-                if (!response.ok) {
-                    addMessage('Warning: Rasa server might not be fully ready...', false);
-                }
-            } catch (error) {
-                console.error('Server check failed:', error);
-                addMessage('Warning: Could not connect to Rasa server. Please check the connection.', false);
-            }
-        }
-
-        // Initial setup
-        checkServer();
+        // Initial greeting
         addMessage('Hi! How can I help you today?', false);
     </script>
 </body>
