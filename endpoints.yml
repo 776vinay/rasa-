@@ -1,5 +1,5 @@
 action_endpoint:
-  url: "${ACTION_SERVER_URL:-https://gccgccg040ogc0808cso8ckg.bizfloe.com/webhook}"
+  url: "https://k0wkcokggwowkkgc8cosw084.bizfloe.com/webhook"
 
 # Additional endpoints can be added here
 # tracker_store:
