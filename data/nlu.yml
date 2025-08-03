@@ -122,14 +122,6 @@ nlu:
     - weather in [London](location)
     - what's the weather in [Paris](location)?
 
-- intent: ask_time
-  examples: |
-    - what time is it?
-    - current time
-    - tell me the time
-    - what's the time?
-    - time please
-
 - intent: ask_help
   examples: |
     - help

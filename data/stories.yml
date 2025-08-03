@@ -5,11 +5,10 @@ stories:
 - story: greet and ask name
   steps:
   - intent: greet
-  - action: utter_ask_name
   - action: user_name_form
   - active_loop: user_name_form
   - active_loop: null
-  - action: utter_greet_with_name
+  - action: utter_submit
 
 - story: ask time
   steps:
