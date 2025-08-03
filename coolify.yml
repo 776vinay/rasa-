@@ -12,29 +12,8 @@ app:
         - RASA_TELEMETRY_ENABLED=false
         - ACTION_SERVER_URL=${ACTION_SERVER_URL}
       volumes:
-        - type: bind
-          source: ./data
-          target: /app/data
-          read_only: true
-        - type: bind
-          source: ./models
-          target: /app/models
-        - type: bind
-          source: ./config.yml
-          target: /app/config.yml
-          read_only: true
-        - type: bind
-          source: ./domain.yml
-          target: /app/domain.yml
-          read_only: true
-        - type: bind
-          source: ./credentials.yml
-          target: /app/credentials.yml
-          read_only: true
-        - type: bind
-          source: ./endpoints.yml
-          target: /app/endpoints.yml
-          read_only: true
+        - .:/app:ro
+        - ./models:/app/models
       resources:
         limits:
           memory: 2G
@@ -50,13 +29,8 @@ app:
         - RASA_ENV=production
         - PYTHONUNBUFFERED=1
       volumes:
-        - type: bind
-          source: ./actions
-          target: /app/actions
-          read_only: true
-        - type: bind
-          source: ./models
-          target: /app/models
+        - .:/app:ro
+        - ./models:/app/models
       resources:
         limits:
           memory: 1G
