@@ -23,10 +23,10 @@ app:
           memory: 1G
 
     actions:
-      port: 5055
+      port: 5056
       healthcheck:
         path: /health
-        port: 5055
+        port: 5056
       environment:
         - RASA_ENV=production
         - PYTHONUNBUFFERED=1
