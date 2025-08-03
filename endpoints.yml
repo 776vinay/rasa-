@@ -1,6 +1,14 @@
 action_endpoint:
   url: "https://k0wkcokggwowkkgc8cosw084.bizfloe.com/webhook"
 
+rest:
+  url: "https://p0w8o4w4wk008k40s004swgs.bizfloe.com"
+
+# Tracker store and event broker configs
+tracker_store:
+  type: sql_lite  # Using SQLite for persistence
+  db: "tracker.db"
+
 # Additional endpoints can be added here
 # tracker_store:
 #   type: sql

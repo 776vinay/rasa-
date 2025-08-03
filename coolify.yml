@@ -10,7 +10,9 @@ app:
         - RASA_ENV=${RASA_ENV:-production}
         - PYTHONUNBUFFERED=1
         - RASA_TELEMETRY_ENABLED=false
-        - ACTION_SERVER_URL=${ACTION_SERVER_URL}
+        - ACTION_SERVER_URL=https://k0wkcokggwowkkgc8cosw084.bizfloe.com/webhook
+        - RASA_MODEL_SERVER=https://p0w8o4w4wk008k40s004swgs.bizfloe.com
+        - OPENAI_API_KEY=${OPENAI_API_KEY}
       volumes:
         - .:/app:ro
         - ./models:/app/models
@@ -28,6 +30,8 @@ app:
       environment:
         - RASA_ENV=production
         - PYTHONUNBUFFERED=1
+        - OPENAI_API_KEY=${OPENAI_API_KEY}
+        - RASA_SERVER_URL=https://p0w8o4w4wk008k40s004swgs.bizfloe.com
       volumes:
         - .:/app:ro
         - ./models:/app/models
