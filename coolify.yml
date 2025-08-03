@@ -7,9 +7,10 @@ app:
         path: /status
         port: 5005
       environment:
-        - RASA_ENV=production
+        - RASA_ENV=${RASA_ENV:-production}
         - PYTHONUNBUFFERED=1
         - RASA_TELEMETRY_ENABLED=false
+        - ACTION_SERVER_URL=${ACTION_SERVER_URL}
       volumes:
         - ./data:/app/data:ro
         - ./models:/app/models
