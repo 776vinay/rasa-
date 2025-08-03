@@ -34,13 +34,13 @@ check_status
 
 echo -e "\n4. Testing basic conversation..."
 echo "Sending: hello"
-curl -s -X POST "https://$DOMAIN/webhooks/rest/webhook" \
+curl -s -X POST "https://$RASA_DOMAIN/webhooks/rest/webhook" \
   -H "Content-Type: application/json" \
   -d '{"message": "hello"}' | jq '.'
 check_status
 
 echo -e "\nSending: how are you?"
-curl -s -X POST "https://$DOMAIN/webhooks/rest/webhook" \
+curl -s -X POST "https://$RASA_DOMAIN/webhooks/rest/webhook" \
   -H "Content-Type: application/json" \
   -d '{"message": "how are you?"}' | jq '.'
 check_status
